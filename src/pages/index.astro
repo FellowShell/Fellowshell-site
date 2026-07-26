@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StepList from "../components/StepList.astro";
+import CTABand from "../components/CTABand.astro";
+
+const valueProps = [
+  {
+    title: "Trained before they start",
+    description:
+      "Volunteers go through Fellowshell's onboarding and skills training before they ever touch client work.",
+  },
+  {
+    title: "Actively managed",
+    description:
+      "An account lead oversees quality and progress for the life of the placement, not just at kickoff.",
+  },
+  {
+    title: "Real experience, not busywork",
+    description:
+      "Only genuine, meaningful work gets sent to volunteers, so the experience and portfolio they build are real.",
+  },
+  {
+    title: "Simple for companies to bring in",
+    description:
+      "No hiring process to run. Tell us what you need and we handle matching and day-to-day management.",
+  },
+];
+
+const steps = [
+  {
+    title: "Volunteers apply and train",
+    description:
+      "Candidates apply to the program and go through Fellowshell's onboarding and skills training, whatever their starting level.",
+  },
+  {
+    title: "Companies share a real need",
+    description:
+      "A short scoping call covers the work, timeline, and working style a company needs support with.",
+  },
+  {
+    title: "We match and manage",
+    description:
+      "Fellowshell matches ready volunteers to the work and manages the engagement day to day.",
+  },
+  {
+    title: "Real outcomes on both sides",
+    description:
+      "Companies get the work done. Volunteers walk away with real experience, mentorship, and a genuine portfolio piece.",
+  },
+];
+
+---
+
+<BaseLayout
+  title="Fellowshell"
+  description="Fellowshell recruits, trains, and manages volunteers who take on real client work, giving companies extra capacity and giving volunteers real experience."
+>
+  <Hero
+    eyebrow="Consulting & talent pipeline"
+    title="Real work experience, matched with real business needs."
+    lede="Fellowshell recruits, trains, and manages volunteers who take on real client work. Companies get extra capacity, volunteers get real experience, and we manage the whole thing in between."
+    primary={{ label: "Work with our volunteers", href: "/services" }}
+    secondary={{ label: "Become a volunteer", href: "/volunteers" }}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Why Fellowshell"
+        title="A managed program, not a marketplace"
+        lede="We built Fellowshell around two things that usually get skipped: real training before anyone touches client work, and real management once they do."
+      />
+      <div class="grid grid--2">
+        {valueProps.map((item) => (
+          <div class="card">
+            <h3>{item.title}</h3>
+            <p class="text-muted">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="container">
+      <SectionHeading
+        align="center"
+        eyebrow="Two sides, one program"
+        title="Built for both ends of the engagement"
+      />
+      <div class="grid grid--2">
+        <div class="card audience-card">
+          <span class="badge">For companies</span>
+          <h3>Extra capacity, fully managed</h3>
+          <p class="text-muted">
+            Bring in motivated, trained volunteers to help move real projects
+            forward, with Fellowshell managing quality and progress
+            throughout.
+          </p>
+          <a class="btn btn--secondary" href="/services">Explore working with volunteers</a>
+        </div>
+        <div class="card audience-card">
+          <span class="badge">For volunteers</span>
+          <h3>Real experience, real mentorship</h3>
+          <p class="text-muted">
+            Build a genuine portfolio doing real client work, with structured
+            training and support from Fellowshell along the way. Open to any
+            starting level.
+          </p>
+          <a class="btn btn--secondary" href="/volunteers">Explore becoming a volunteer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="How it works"
+        title="From application to real work, in four steps"
+      />
+      <StepList steps={steps} />
+    </div>
+  </section>
+
+  <CTABand
+    eyebrow="Ready when you are"
+    title="Let's get started."
+    description="Tell us what you need, or tell us what you're looking for. Either way, we'll follow up within a couple of business days."
+    primary={{ label: "Work with our volunteers", href: "/services" }}
+    secondary={{ label: "Talk to us", href: "/contact" }}
+  />
+</BaseLayout>
+
+<style>
+  .audience-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+</style>

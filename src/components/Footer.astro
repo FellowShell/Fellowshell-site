@@ -1,0 +1,53 @@
+---
+import CookiePreferencesButton from "./CookiePreferencesButton.tsx";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <p class="font-display site-footer__logo">Fellowshell</p>
+      <p class="text-muted">
+        We train volunteers and manage them on real client work, giving
+        companies extra capacity and giving volunteers real experience.
+      </p>
+    </div>
+
+    <nav class="site-footer__col" aria-label="Company">
+      <h2>Company</h2>
+      <ul>
+        <li><a href="/services">For companies</a></li>
+        <li><a href="/volunteers">For volunteers</a></li>
+        <li><a href="/about">About us</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <nav class="site-footer__col" aria-label="Legal">
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="/privacy-policy">Privacy policy</a></li>
+        <li><a href="/cookie-policy">Cookie policy</a></li>
+        <li><a href="/terms">Terms of service</a></li>
+        <li><CookiePreferencesButton client:idle /></li>
+      </ul>
+    </nav>
+
+    <div class="site-footer__col">
+      <h2>Get in touch</h2>
+      <ul>
+        <li><span class="text-muted">General:</span> <a href="mailto:hello@fellowshell.com">hello@fellowshell.com</a></li>
+        <li><span class="text-muted">Sales:</span> <a href="mailto:sales@fellowshell.com">sales@fellowshell.com</a></li>
+        <li><span class="text-muted">HR:</span> <a href="mailto:hr@fellowshell.com">hr@fellowshell.com</a></li>
+        <li><span class="text-muted">Legal:</span> <a href="mailto:legal@fellowshell.com">legal@fellowshell.com</a></li>
+        <li><span class="text-muted">Privacy:</span> <a href="mailto:privacy@fellowshell.com">privacy@fellowshell.com</a></li>
+        <li><span class="text-muted">Security:</span> <a href="mailto:security@fellowshell.com">security@fellowshell.com</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p class="text-muted">&copy; {year} Fellowshell. All rights reserved.</p>
+  </div>
+</footer>

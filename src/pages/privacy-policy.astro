@@ -1,0 +1,170 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const lastUpdated = "[DD Month YYYY, set this when you publish]";
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="How Fellowshell collects, uses, and protects personal data."
+>
+  <section class="section">
+    <div class="container prose">
+      <header>
+        <p class="eyebrow">Legal</p>
+        <h1>Privacy Policy</h1>
+        <p class="updated-note text-muted">Last updated: {lastUpdated}</p>
+      </header>
+
+      <p>
+        This policy explains what personal data Fellowshell ("<strong>we</strong>",
+        "<strong>us</strong>") collects through this website and our
+        placement service, why we collect it, and the rights you have over
+        it. It is written to meet our obligations under the EU/UK General
+        Data Protection Regulation (GDPR).
+      </p>
+
+      <p class="callout">
+        <strong>Before publishing:</strong> replace the remaining bracketed
+        placeholders below, and have this reviewed by a lawyer for your
+        jurisdiction. This template describes the data practices actually
+        implemented in this codebase. Update it if those practices change.
+      </p>
+
+      <h2>1. Who we are</h2>
+      <p>
+        The data controller for information collected through this site is
+        Fellowshell. You can reach us at{" "}
+        <a class="link" href="mailto:privacy@fellowshell.com">privacy@fellowshell.com</a>{" "}
+        for anything covered by this policy, including a request to a Data
+        Protection Officer if one is appointed later.
+      </p>
+
+      <h2>2. What we collect, and why</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Purpose</th>
+            <th>Legal basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Name, email, company, message content, and any file you attach via the contact form</td>
+            <td>Respond to your enquiry; assess fit if you're applying as a volunteer</td>
+            <td>Legitimate interest / steps taken at your request prior to a contract</td>
+          </tr>
+          <tr>
+            <td>Email address, if you opt in to updates</td>
+            <td>Send occasional news about Fellowshell</td>
+            <td>Consent (withdraw anytime via the unsubscribe link)</td>
+          </tr>
+          <tr>
+            <td>Cookie consent choice (necessary/analytics)</td>
+            <td>Remember your cookie preference so we don't ask again</td>
+            <td>Legitimate interest (strictly necessary storage)</td>
+          </tr>
+          <tr>
+            <td>Aggregate usage data (pages viewed, approximate location, device type)</td>
+            <td>Understand how the site is used and improve it</td>
+            <td>Consent (only collected if you accept analytics cookies)</td>
+          </tr>
+          <tr>
+            <td>Background, work history, and any application materials (volunteer applicants)</td>
+            <td>Assess suitability for the program and match you to real work</td>
+            <td>Steps taken at your request prior to a contract</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. Cookies and similar storage</h2>
+      <p>
+        We only set strictly necessary storage by default. Analytics storage
+        is off until you actively accept it in the cookie banner, and you can
+        change your choice at any time via "Cookie preferences" in the
+        footer. Full detail is in our{" "}
+        <a class="link" href="/cookie-policy">Cookie Policy</a>.
+      </p>
+
+      <h2>4. Who we share data with</h2>
+      <p>
+        We do not sell personal data. We may share it with:
+      </p>
+      <ul>
+        <li>Client companies, when you apply as a volunteer and are put forward for a specific piece of work (with your knowledge beforehand)</li>
+        <li>FormSubmit (formsubmit.co), which delivers contact form submissions, including any attached files, to our inbox by email</li>
+        <li>Regulators or authorities where we're legally required to disclose it</li>
+      </ul>
+      <p>[Add any further processors here as you adopt them, e.g. a hosting provider or analytics vendor.]</p>
+
+      <h2>5. International transfers</h2>
+      <p>
+        If personal data is transferred outside the EU/UK, we rely on an
+        adequacy decision or appropriate safeguards such as Standard
+        Contractual Clauses. [Confirm and detail once hosting/processors are
+        finalised.]
+      </p>
+
+      <h2>6. How long we keep data</h2>
+      <ul>
+        <li>Contact form enquiries: [retention period, e.g. 12 months from last contact]</li>
+        <li>Volunteer applications and program records: [retention period, e.g. duration of the program plus a defined period after]</li>
+        <li>Cookie consent records: up to 12 months, after which we ask again</li>
+      </ul>
+
+      <h2>7. Your rights</h2>
+      <p>Under the GDPR, you have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Correct inaccurate or incomplete data</li>
+        <li>Request erasure of your data ("right to be forgotten")</li>
+        <li>Restrict or object to certain processing</li>
+        <li>Request a portable copy of data you provided to us</li>
+        <li>Withdraw consent at any time, where processing relies on consent</li>
+        <li>Lodge a complaint with your local data protection supervisory authority</li>
+      </ul>
+      <p>
+        To exercise any of these rights, email{" "}
+        <a class="link" href="mailto:privacy@fellowshell.com">privacy@fellowshell.com</a>.
+        We'll respond within one month, as required by law.
+      </p>
+
+      <h2>8. Automated decision-making</h2>
+      <p>
+        We do not use fully automated decision-making or profiling that
+        produces legal or similarly significant effects when matching
+        volunteers or evaluating enquiries.
+      </p>
+
+      <h2>9. Children's data</h2>
+      <p>
+        This site is intended for business use and is not directed at
+        children. We do not knowingly collect data from anyone under 16.
+      </p>
+
+      <h2>10. Changes to this policy</h2>
+      <p>
+        We'll update this page when our practices change and update the
+        "last updated" date above. Significant changes will be flagged more
+        prominently where appropriate.
+      </p>
+
+      <h2>11. Contact</h2>
+      <p>
+        Questions about this policy or how your data is handled:{" "}
+        <a class="link" href="mailto:privacy@fellowshell.com">privacy@fellowshell.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .callout {
+    background: var(--color-accent-soft);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    color: var(--color-text);
+  }
+</style>

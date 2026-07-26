@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.tsx";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Fellowshell to work with our volunteers, or to apply to join the program yourself."
+>
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-intro">
+        <p class="eyebrow">Get in touch</p>
+        <h1>Let's talk about the work.</h1>
+        <p class="lede">
+          Whether you're scoping work for your company or looking to join as
+          a volunteer, tell us a bit about it below. We reply within a
+          couple of business days.
+        </p>
+
+        <dl class="contact-details">
+          <div>
+            <dt>Email</dt>
+            <dd><a class="link" href="mailto:hello@fellowshell.com">hello@fellowshell.com</a></dd>
+          </div>
+        </dl>
+
+        <p class="hint">
+          By submitting this form you agree to our{" "}
+          <a class="link" href="/privacy-policy">Privacy Policy</a>. We only
+          use your details to respond to your enquiry unless you opt in to
+          updates.
+        </p>
+      </div>
+
+      <div class="card contact-form-card">
+        <ContactForm client:load />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    gap: var(--space-5);
+    align-items: start;
+  }
+
+  .contact-intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .contact-details {
+    margin-top: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .contact-details dt {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-muted);
+  }
+
+  .contact-form-card {
+    padding: var(--space-4);
+  }
+
+  @media (min-width: 56rem) {
+    .contact-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+  }
+</style>

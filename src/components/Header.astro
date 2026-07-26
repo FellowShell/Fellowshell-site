@@ -1,0 +1,9 @@
+---
+import SiteNav from "./SiteNav.tsx";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <SiteNav client:load currentPath={currentPath} />
+</header>

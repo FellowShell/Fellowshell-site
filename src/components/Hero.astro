@@ -1,0 +1,107 @@
+---
+interface CTA {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lede: string;
+  primary?: CTA;
+  secondary?: CTA;
+}
+
+const { eyebrow, title, lede, primary, secondary } = Astro.props;
+---
+
+<section class="hero section">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{title}</h1>
+      <p class="lede">{lede}</p>
+      {(primary || secondary) && (
+        <div class="btn-row">
+          {primary && <a class="btn btn--primary" href={primary.href}>{primary.label}</a>}
+          {secondary && <a class="btn btn--secondary" href={secondary.href}>{secondary.label}</a>}
+        </div>
+      )}
+    </div>
+    <div class="hero__figure" aria-hidden="true">
+      <div class="hero__figure-grid"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero__inner {
+    display: grid;
+    gap: var(--space-5);
+    align-items: center;
+  }
+
+  .hero__copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .hero__copy .btn-row {
+    margin-top: var(--space-3);
+  }
+
+  .hero__figure {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(155deg, var(--color-surface) 0%, var(--color-accent-soft) 100%);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    display: none;
+  }
+
+  .hero__figure-grid {
+    position: absolute;
+    inset: var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .hero__figure-grid::before,
+  .hero__figure-grid::after {
+    content: "";
+    position: absolute;
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .hero__figure-grid::before {
+    top: var(--space-3);
+    left: var(--space-3);
+    right: var(--space-3);
+    height: var(--space-4);
+  }
+
+  .hero__figure-grid::after {
+    left: var(--space-3);
+    right: 35%;
+    bottom: var(--space-3);
+    top: calc(var(--space-3) + var(--space-4) + var(--space-2));
+    background: var(--color-accent-soft);
+    border-color: var(--color-accent);
+  }
+
+  @media (min-width: 56rem) {
+    .hero__inner {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .hero__figure {
+      display: block;
+    }
+  }
+</style>

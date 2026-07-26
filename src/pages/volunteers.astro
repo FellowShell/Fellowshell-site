@@ -1,0 +1,146 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StepList from "../components/StepList.astro";
+import FAQList from "../components/FAQList.astro";
+import CTABand from "../components/CTABand.astro";
+
+const benefits = [
+  {
+    title: "Real client work, not simulations",
+    description:
+      "The work you do goes to actual companies with actual needs, not a practice exercise that gets thrown away.",
+  },
+  {
+    title: "Structured training first",
+    description:
+      "You're onboarded and trained before you're matched to anything, whatever your starting point.",
+  },
+  {
+    title: "Managed and supported throughout",
+    description:
+      "An account lead stays involved for the length of the placement, so you're never figuring it out alone.",
+  },
+  {
+    title: "Open to any experience level",
+    description:
+      "Whether you're just starting out or building a new skill, Fellowshell is built to train you up, not filter you out.",
+  },
+];
+
+const steps = [
+  {
+    title: "Apply",
+    description: "Tell us your background, interests, and availability through the form below.",
+  },
+  {
+    title: "Onboard and train",
+    description: "You go through Fellowshell's onboarding and skills training before any client work.",
+  },
+  {
+    title: "Get matched",
+    description: "Once ready, you're matched to real work that fits your training and availability.",
+  },
+  {
+    title: "Work with support",
+    description: "You do the work with an account lead and mentorship available throughout.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Is this paid?",
+    answer:
+      "No. This is an unpaid program focused on training and real experience, not a job.",
+  },
+  {
+    question: "Do I need experience already?",
+    answer:
+      "No. Fellowshell is built for people at any level, from complete beginners to people building a new skill.",
+  },
+  {
+    question: "What do I actually get out of it?",
+    answer:
+      "Structured training, mentorship, and real work you can point to afterwards, the kind of experience that's hard to get without already having experience.",
+  },
+  {
+    question: "How much time does it take?",
+    answer:
+      "It depends on the placement. Tell us your availability when you apply and we'll match against work that fits it.",
+  },
+  {
+    question: "How is my data used during applications?",
+    answer:
+      "Only to assess fit for the program and match you to relevant work. See our Privacy Policy for full detail on what's collected and for how long.",
+  },
+];
+---
+
+<BaseLayout
+  title="For volunteers"
+  description="Join Fellowshell as a volunteer: train, get matched to real client work, and build genuine experience, with support the whole way."
+>
+  <section class="section">
+    <div class="container hero-copy">
+      <p class="eyebrow">For volunteers</p>
+      <h1>Get real experience, not busywork.</h1>
+      <p class="lede">
+        Join Fellowshell as a volunteer. Train, get matched to real client
+        work, and build a genuine portfolio, with structured support the
+        whole way. Open to any starting level.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/contact?purpose=join">Apply now</a>
+        <a class="btn btn--secondary" href="/services">Looking to hire instead?</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="container">
+      <SectionHeading eyebrow="Why volunteers choose us" title="What being in the program gets you" />
+      <div class="grid grid--2">
+        {benefits.map((item) => (
+          <div class="card">
+            <h3>{item.title}</h3>
+            <p class="text-muted">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading eyebrow="Process" title="From application to real work" />
+      <StepList steps={steps} />
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="container container--narrow">
+      <SectionHeading eyebrow="Questions" title="Frequently asked" />
+      <FAQList items={faqs} />
+    </div>
+  </section>
+
+  <CTABand
+    title="Ready to get started?"
+    description="Send us your background and we'll follow up about next steps within a couple of business days."
+    primary={{ label: "Apply now", href: "/contact?purpose=join" }}
+    secondary={{ label: "Read about us", href: "/about" }}
+  />
+</BaseLayout>
+
+<style>
+  .hero-copy {
+    max-width: 42rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .hero-copy .btn-row {
+    margin-top: var(--space-3);
+  }
+</style>

@@ -1,0 +1,187 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StepList from "../components/StepList.astro";
+import FAQList from "../components/FAQList.astro";
+import CTABand from "../components/CTABand.astro";
+
+const formats = [
+  {
+    title: "Project-based work",
+    description:
+      "A defined deliverable owned by a small volunteer team, with one lead as your single point of contact.",
+  },
+  {
+    title: "Ongoing support",
+    description:
+      "Volunteers work part-time on recurring tasks for the length of the program, alongside your team.",
+  },
+  {
+    title: "Pilot projects",
+    description:
+      "A lower-stakes way to try the program: a smaller, well-scoped piece of work suited to volunteers earlier in training.",
+  },
+];
+
+const whatYouGet = [
+  "A single account lead as your point of contact",
+  "Volunteers who've completed structured onboarding before starting",
+  "Ongoing oversight of quality and progress, not just a handoff at kickoff",
+  "No hiring process to run on your side",
+];
+
+const steps = [
+  {
+    title: "Scoping call",
+    description: "We talk through the work, timeline, and working style that would suit your team.",
+  },
+  {
+    title: "We match ready volunteers",
+    description: "You're introduced to volunteers who've completed training and fit the brief.",
+  },
+  {
+    title: "Structured kickoff",
+    description: "Volunteers onboard onto your project with clear scope and expectations from day one.",
+  },
+  {
+    title: "Ongoing management",
+    description: "Your account lead checks in throughout, managing quality and progress on our side.",
+  },
+  {
+    title: "Wrap-up and review",
+    description: "We close out the engagement with a review of outcomes and next steps, if there are any.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Are the volunteers paid?",
+    answer:
+      "No. Volunteers join Fellowshell to build real experience under our training and supervision. Fellowshell manages the arrangement and the people in it.",
+  },
+  {
+    question: "What does it cost to work with Fellowshell?",
+    answer:
+      "We're still finalising our commercial model. Reach out and we'll walk through what a partnership could look like for your team.",
+  },
+  {
+    question: "Do volunteers work independently, or with oversight?",
+    answer:
+      "With oversight. An account lead stays involved throughout the engagement to manage quality and progress, so you're never dealing with an unsupervised trainee.",
+  },
+  {
+    question: "What kind of work suits this program?",
+    answer:
+      "Well-scoped, real work with room for oversight: a defined project, a recurring task, or a pilot. Talk to us about your specific need and we'll tell you honestly if it's a good fit.",
+  },
+  {
+    question: "What if the match isn't right?",
+    answer:
+      "Tell your account lead. We'll work through it with you, including a replacement match if needed.",
+  },
+];
+---
+
+<BaseLayout
+  title="For companies"
+  description="Get real work done with volunteers Fellowshell has trained and manages, with a single account lead as your point of contact."
+>
+  <section class="section">
+    <div class="container hero-copy">
+      <p class="eyebrow">For companies</p>
+      <h1>Get real work done, with volunteers we've trained and manage.</h1>
+      <p class="lede">
+        Fellowshell recruits and trains volunteers, then matches and manages
+        them on real work for companies like yours. You get extra capacity
+        and a single point of contact. We handle the rest.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/contact?purpose=hire">Start a scoping call</a>
+        <a class="btn btn--secondary" href="/volunteers">Looking to join instead?</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="container">
+      <SectionHeading eyebrow="What you get" title="A managed engagement, not just an introduction" />
+      <ul class="check-list">
+        {whatYouGet.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading eyebrow="Formats" title="A few ways to bring in the work" />
+      <div class="grid grid--3">
+        {formats.map((format) => (
+          <div class="card">
+            <h3>{format.title}</h3>
+            <p class="text-muted">{format.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="container">
+      <SectionHeading eyebrow="Process" title="What working with us actually looks like" />
+      <StepList steps={steps} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHeading eyebrow="Questions" title="Frequently asked" />
+      <FAQList items={faqs} />
+    </div>
+  </section>
+
+  <CTABand
+    title="Tell us what the work looks like."
+    description="A short scoping call is enough for us to start thinking about a match."
+    primary={{ label: "Start a scoping call", href: "/contact?purpose=hire" }}
+    secondary={{ label: "Read about us", href: "/about" }}
+  />
+</BaseLayout>
+
+<style>
+  .hero-copy {
+    max-width: 42rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .hero-copy .btn-row {
+    margin-top: var(--space-3);
+  }
+
+  .check-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 34rem;
+  }
+
+  .check-list li {
+    position: relative;
+    padding-left: var(--space-4);
+    color: var(--color-text-muted);
+  }
+
+  .check-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-accent);
+  }
+</style>

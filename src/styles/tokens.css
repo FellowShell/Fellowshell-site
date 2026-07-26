@@ -1,0 +1,129 @@
+/*
+  Fellowshell design tokens
+  ---------------------------------------------------------------------------
+  Colour: strict 60/30/10 system + 2 greys.
+    60% --color-bg        dominant neutral (page background)
+    30% --color-surface   secondary neutral (cards, alternating sections, the
+                           base that --color-border is derived from)
+    10% --color-accent    the ONLY colour used for calls-to-action (primary
+                           buttons, links styled as actions, focus rings on
+                           those actions). It never appears as decoration.
+    text-full / text-muted are the two required greys; everything else reuses
+    these five colours by inverting fg/bg (see --color-ink section used for
+    the footer) rather than introducing a sixth colour.
+
+    Exception: status/action colours (success, danger, warning) are allowed
+    outside the 5-colour system ONLY for colour-coded action buttons where
+    the colour itself carries meaning (e.g. "Approve", "Withdraw
+    application"). They must never be used for generic CTAs or decoration.
+
+  Type: 2 self-hosted webfonts (no third-party font CDN, avoids leaking
+  visitor IPs to Google before cookie consent), fixed 1.25 (major third)
+  modular scale from a 16px base.
+
+  Space: 8pt grid (4px half-step allowed at the smallest size only).
+  ---------------------------------------------------------------------------
+*/
+
+:root {
+  color-scheme: light;
+
+  /* ---------- Colour: neutrals (60/30) ---------- */
+  --color-bg: #f7f5f1;             /* 60% dominant neutral */
+  --color-surface: #ece7dd;        /* 30% secondary neutral (cards, bands) */
+  --color-surface-raised: #ffffff; /* elevated surface on top of --color-surface */
+  --color-border: #dbd3c2;         /* derived one step down from surface */
+
+  /* ---------- Colour: accent (10%, CTAs only) ---------- */
+  --color-accent: #1f6f54;
+  --color-accent-hover: #175a43;
+  --color-accent-active: #124531;
+  --color-accent-soft: #e3efe9;    /* tint, for accent-adjacent chips/badges */
+  --color-accent-contrast: #ffffff;
+
+  /* ---------- Colour: the two required text greys ---------- */
+  --color-text: #211f1b;           /* full: body copy, headings */
+  --color-text-muted: #5c564c;     /* muted: captions, meta, helper text */
+  --color-text-on-dark: #f7f5f1;
+  --color-text-on-dark-muted: #c9c3b6;
+
+  /* ---------- Colour: inverse ("ink") section, reuses the 5 colours ---------- */
+  --color-ink: #211f1b;            /* == --color-text, used as a bg (footer, dark bands) */
+  --color-ink-surface: #322f29;    /* one step up from ink, for cards on dark */
+  --color-ink-border: #46423a;
+
+  /* ---------- Colour: coded-action exceptions (not part of the 60/30/10 budget) ---------- */
+  --color-success: #245e33;
+  --color-success-soft: #e3f2e7;
+  --color-danger: #b3261e;
+  --color-danger-soft: #fbe9e7;
+  --color-warning: #9a6400;
+  --color-warning-soft: #fbf0dc;
+
+  /* ---------- Type families ---------- */
+  --font-display: "Fraunces", "Iowan Old Style", ui-serif, serif;
+  --font-body: "Manrope", "Segoe UI", ui-sans-serif, sans-serif;
+
+  /* ---------- Type scale: 1.25 (major third) ratio, base 1rem ---------- */
+  --text-xs: 0.64rem;    /* 10.24px  (base / r^2) */
+  --text-sm: 0.8rem;     /* 12.8px   (base / r)    */
+  --text-base: 1rem;     /* 16px     (base)        */
+  --text-md: 1.25rem;    /* 20px     (base * r)    */
+  --text-lg: 1.5625rem;  /* 25px     (base * r^2)  */
+  --text-xl: 1.953rem;   /* 31.25px  (base * r^3)  */
+  --text-2xl: 2.441rem;  /* 39px     (base * r^4)  */
+  --text-3xl: 3.052rem;  /* 48.8px   (base * r^5)  */
+  --text-4xl: 3.815rem;  /* 61px     (base * r^6)  */
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+
+  --tracking-tight: -0.01em;
+  --tracking-wide: 0.08em;
+
+  /* ---------- Space: 8pt grid ---------- */
+  --space-0-5: 0.25rem;  /* 4px, half-step, smallest gaps only */
+  --space-1: 0.5rem;     /* 8px */
+  --space-2: 1rem;       /* 16px */
+  --space-3: 1.5rem;     /* 24px */
+  --space-4: 2rem;       /* 32px */
+  --space-5: 3rem;       /* 48px */
+  --space-6: 4rem;       /* 64px */
+  --space-7: 6rem;       /* 96px */
+  --space-8: 8rem;       /* 128px */
+
+  /* Clear space: the minimum breathing room every interactive element
+     (button, link target, form control, logo) must keep from neighbouring
+     content. Fixed at one 8pt step so touch targets never crowd together. */
+  --clear-space: var(--space-2);
+
+  /* ---------- Shape / elevation ---------- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(33, 31, 27, 0.06);
+  --shadow-md: 0 8px 24px -8px rgba(33, 31, 27, 0.18);
+  --shadow-lg: 0 24px 48px -16px rgba(33, 31, 27, 0.24);
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+
+  /* ---------- Layout ---------- */
+  --content-max: 72rem;
+  --content-narrow: 46rem;
+
+  /* ---------- Focus ---------- */
+  --focus-ring: 0 0 0 3px var(--color-bg), 0 0 0 5px var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}

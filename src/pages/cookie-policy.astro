@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const lastUpdated = "[DD Month YYYY, set this when you publish]";
+---
+
+<BaseLayout
+  title="Cookie Policy"
+  description="What cookies and local storage Fellowshell uses, and how to control them."
+>
+  <section class="section">
+    <div class="container prose">
+      <header>
+        <p class="eyebrow">Legal</p>
+        <h1>Cookie Policy</h1>
+        <p class="updated-note text-muted">Last updated: {lastUpdated}</p>
+      </header>
+
+      <p>
+        This page explains what cookies and browser storage this site uses,
+        why, and how you can change your choice at any time. It should be
+        read alongside our{" "}
+        <a class="link" href="/privacy-policy">Privacy Policy</a>.
+      </p>
+
+      <h2>How consent works here</h2>
+      <p>
+        When you first visit, a banner asks you to accept or reject
+        non-essential storage. Nothing beyond what's strictly necessary is
+        set before you choose. You can change your mind at any time using
+        the <strong>"Cookie preferences"</strong> link in the site footer,
+        which reopens the same choice.
+      </p>
+
+      <h2>What we store</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Purpose</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>fellowshell:consent</code></td>
+            <td>Local storage, strictly necessary</td>
+            <td>Remembers your cookie choice so we don't ask on every visit</td>
+            <td>Until cleared or reset</td>
+          </tr>
+          <tr>
+            <td><code>fellowshell_consent</code></td>
+            <td>First-party cookie, strictly necessary</td>
+            <td>Mirrors your cookie choice</td>
+            <td>12 months</td>
+          </tr>
+          <tr>
+            <td>Analytics storage</td>
+            <td>Optional, only if accepted</td>
+            <td>
+              Aggregate usage measurement (pages viewed, approximate
+              location, device type) to help us improve the site. No
+              analytics script runs until you opt in.
+            </td>
+            <td>[Set once an analytics tool is chosen]</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        We currently set no third-party or advertising cookies. If that
+        changes, for example by adding an analytics provider, this table
+        and the consent banner categories will be updated first.
+      </p>
+
+      <h2>Controlling cookies in your browser</h2>
+      <p>
+        Alongside the controls on this site, most browsers let you block or
+        delete cookies in their settings. Blocking strictly necessary
+        storage may mean the cookie banner reappears on every visit, since we
+        can no longer remember your earlier choice.
+      </p>
+
+      <h2>Questions</h2>
+      <p>
+        Email{" "}
+        <a class="link" href="mailto:privacy@fellowshell.com">privacy@fellowshell.com</a>{" "}
+        with any questions about this policy.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

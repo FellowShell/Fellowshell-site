@@ -1,0 +1,41 @@
+---
+interface Stat {
+  value: string;
+  label: string;
+}
+
+const { stats } = Astro.props as { stats: Stat[] };
+---
+
+<div class="stat-grid">
+  {stats.map((stat) => (
+    <div class="stat-grid__item">
+      <p class="stat-grid__value font-display">{stat.value}</p>
+      <p class="stat-grid__label text-muted">{stat.label}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .stat-grid__value {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+  }
+
+  .stat-grid__label {
+    font-size: var(--text-sm);
+    margin-top: var(--space-0-5);
+  }
+
+  @media (min-width: 48rem) {
+    .stat-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
