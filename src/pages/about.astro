@@ -62,9 +62,14 @@ const values = [
     <div class="container container--narrow">
       <SectionHeading eyebrow="Leadership" title="Who's behind Fellowshell" />
       <div class="card leadership-card">
+        <p class="font-display leadership-name">InfinitiWarrior</p>
+        <p class="eyebrow">Founder</p>
         <p class="text-muted">
-          [Add a short founder bio here before launch. A first name and a
-          line on your background is enough, no legal name required.]
+          Started Fellowshell after hitting the classic problem: you need
+          experience to get your first job in IT, and you need a job to get
+          experience. Fellowshell breaks that cycle, pairing training with
+          real client work so people can build the experience employers
+          actually look for.
         </p>
       </div>
     </div>
@@ -88,5 +93,17 @@ const values = [
 
   .leadership-card {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .leadership-name {
+    font-size: var(--text-lg);
+  }
+
+  .leadership-card .text-muted {
+    margin-top: var(--space-1);
   }
 </style>
